@@ -1,0 +1,24 @@
+img {
+  max-width: 100%;
+}
+/* Média querie : quand l'écran est plus grand que 960px */
+@media screen and (min-width: 960px) {
+  .d-flex {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    justify-content: flex-end;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  /* grille */
+  .col-md-4 {
+    flex-basis: calc(100% / 3);
+  }
+  .col-md-8 {
+    flex-basis: calc(100% * 2 / 3);
+  }
+}
