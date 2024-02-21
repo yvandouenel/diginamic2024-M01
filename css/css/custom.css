@@ -4,6 +4,17 @@ img {
 /* Média querie : quand l'écran est plus grand que 960px */
 @media screen and (min-width: 960px) {
   .d-flex {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 0 10%;
+    gap: 2rem;
+  }
+  .col-md-4 {
+    order: -1;
+  }
+}
+/* @media screen and (min-width: 960px) {
+  .d-flex {
     display: flex;
     flex-direction: row-reverse;
     gap: 20px;
@@ -13,12 +24,4 @@ img {
     width: 80%;
     margin: 0 auto;
   }
-
-  /* grille */
-  .col-md-4 {
-    flex-basis: calc(100% / 3);
-  }
-  .col-md-8 {
-    flex-basis: calc(100% * 2 / 3);
-  }
-}
+} */
