@@ -2,3 +2,16 @@
   background-color: lightgrey;
   border: 1px solid black;
 }
+#test-box-sizing {
+  height: 100vh;
+}
+
+/* #test-box-sizing {
+  > div {
+    float: left;
+    width: 50%;
+    border: 10px solid black;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+}*/

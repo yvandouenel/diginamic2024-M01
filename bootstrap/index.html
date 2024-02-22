@@ -9,6 +9,33 @@
   </head>
 
   <body>
+    <div
+      id="test-box-sizing"
+      class="m-5 border d-flex justify-content-center align-items-end align-content-end flex-wrap gap-3"
+    >
+      <div class="w-25 border border-warning p-2">
+        Div1 qsdf Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut
+        sunt, non porro, at numquam saepe explicabo beatae vero dolorem
+        similique molestiae dolor totam delectus dolorum eius, culpa aliquid
+        libero quod. Officiis distinctio porro impedit fuga saepe repellat esse
+        iusto quo ratione ipsam maxime, quibusdam culpa optio suscipit, hic
+        ullam voluptate officia facilis aut, vel et obcaecati soluta. Non
+        aliquam at voluptatum dolorem quo adipisci similique dicta tempora
+        autem, voluptas veritatis pariatur quaerat consectetur, cupiditate
+        quibusdam suscipit, voluptates deleniti dolorum. Error inventore
+        doloremque vel praesentium cupiditate delectus incidunt itaque dicta
+        ipsam nostrum. Error, molestias eaque veniam aspernatur accusantium
+        cupiditate dicta dolores!
+      </div>
+      <div class="border border-danger border-3 w-50">Div2</div>
+      <div class="w-25 border border-warning p-2">
+        Div1 qsdf Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ut
+        sunt, non porro, at numquam saepe explicabo beatae vero dolorem
+        similique molestiae dolor totam delectus dolorum eius, culpa aliquid
+        libero quod.
+      </div>
+      <div class="border border-danger border-3 w-50">Div2</div>
+    </div>
     <div class="container">
       <header>Header</header>
       <main>
@@ -23,7 +50,37 @@
           </div>
         </div>
       </main>
-      <footer>Footer</footer>
+      <footer>
+        <form action="/action_page.php">
+          <div class="mb-3 mt-3">
+            <label for="email" class="">Email:</label>
+            <input
+              type="email"
+              class="w-50"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="pwd" class="form-label">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              id="pwd"
+              placeholder="Enter password"
+              name="pswd"
+            />
+          </div>
+          <div class="form-check mb-3">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" name="remember" />
+              Remember me
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </footer>
     </div>
   </body>
 </html>
