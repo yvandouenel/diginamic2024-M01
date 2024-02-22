@@ -1,0 +1,7 @@
+
+.icon-phone:before { content: '\e800'; } /* '' */
+.icon-megaphone:before { content: '\e801'; } /* '' */
+.icon-headphones:before { content: '\e802'; } /* '' */
+.icon-phone-squared:before { content: '\f098'; } /* '' */
+.icon-mobile:before { content: '\f10b'; } /* '' */
+.icon-volume-control-phone:before { content: '\f2a0'; } /* '' */

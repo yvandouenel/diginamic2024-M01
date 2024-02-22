@@ -1,0 +1,42 @@
+p {
+  animation-duration: 5s;
+  /*  animation-name: animatep; */
+  animation-iteration-count: infinite;
+  white-space: nowrap;
+}
+img {
+  max-width: 200px;
+  animation-name: animateimg;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes animateimg {
+  from {
+    transform: rotate(0) scale(0, 0);
+  }
+  50% {
+    transform: rotate(180deg) scale(2, 2);
+  }
+  to {
+    transform: rotate(360deg) scale(0, 0);
+  }
+}
+
+@keyframes animatep {
+  from {
+    margin-left: 100%;
+  }
+  25% {
+    margin-top: 150px;
+    font-size: 2em;
+    margin-left: 50%;
+  }
+  75% {
+    font-size: 3em;
+    margin-left: 25%;
+  }
+
+  to {
+    margin-left: 0%;
+  }
+}

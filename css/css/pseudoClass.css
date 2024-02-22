@@ -1,0 +1,12 @@
+li:nth-child(2n + 1) {
+  background-color: lightgray;
+  &:hover {
+    background-color: blue;
+    cursor: pointer;
+  }
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  border: 2px solid pink;
+}

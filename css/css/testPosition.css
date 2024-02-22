@@ -1,0 +1,31 @@
+header {
+  border: 1px solid red;
+  height: 200px;
+}
+main {
+  position: relative;
+  border: 5px solid black;
+  font-weight: bold;
+  font-size: 2rem;
+}
+img {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  z-index: -1;
+}
+#css {
+}
+/* main {
+  border: 5px solid black;
+}
+img {
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+footer {
+  clear: left;
+  border: 1px solid blue;
+}
+ */

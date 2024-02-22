@@ -1,0 +1,10 @@
+.form {
+  &.form--contact {
+    /* styles spécifiques au formulaire de contact */
+    border: 1px solid red;
+  }
+  &.form--nl {
+    /* styles spécifiques au formulaire d'inscription */
+    border: 1px solid blue;
+  }
+}
