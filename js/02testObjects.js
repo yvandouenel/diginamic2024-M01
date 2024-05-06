@@ -18,6 +18,8 @@ const jc = {
 
 // Syntaxe (sucre) de classe
 class Person {
+  // Propriété de classe 
+  static species = "humaine";
   // constructeurs avec déclaration des propriétés directes
   constructor(nom, prenom, adresse) {
     this.nom = nom;
@@ -26,7 +28,7 @@ class Person {
   }
   // Ajout de la méthode display au prototype de Person
   display() {
-    console.log(`Bonjour (propriété du prototype de Person), je m'appelle ${this.prenom} et j'habite à ${this.adresse.ville}`);
+    console.log(`Bonjour (propriété du prototype de Person), je m'appelle ${this.prenom} et j'habite à ${this.adresse.ville} et j'appartiens à l'espèce ${Person.species}`);
   }
 }
 
