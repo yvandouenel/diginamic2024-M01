@@ -33,6 +33,20 @@ class Circle {
   area() {
     return this.radius ** 2 * Circle.pi;
   }
+  diplayCaracteristics() {
+    console.log(`Cercle ${this.name} de rayon ${this.radius} et d'aire ${this.area()}`);
+  }
+}
+
+class ColoredCircle extends Circle {
+  constructor(radius, name, color) {
+    super(radius, name);
+    this.color = color;
+  }
+  diplayCaracteristics() {
+    super.diplayCaracteristics();
+    console.log(`... et de couleur ${this.color}`);
+  }
 }
 
 // Création des instances
@@ -41,3 +55,7 @@ const smallCircle = new Circle(2, "Small circle");
 console.log(`bigCircle`, bigCircle);
 console.log(`smallCircle`, smallCircle);
 console.log(`area smallCircle`, smallCircle.area());
+
+const cc = new ColoredCircle(10, "Cercle coloré", "red");
+cc.diplayCaracteristics();
+console.log(`cc`, cc);
