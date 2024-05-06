@@ -30,9 +30,15 @@ const numbers = [45, 2, 15, 35, 4, 1, -58];
 console.log(numbers.sort((a, b) => a - b));
 
 // reduce 
-const lettersNumber = fruits.reduce((accumulator, currentValue) => accumulator + currentValue.lenght, 0);
+console.log(`fruits`, fruits);
+const lettersNumber = fruits.reduce((accumulator, currentValue) => accumulator + currentValue.length, 0);
 
 console.log(`lettersNumber`, lettersNumber);
+
+// Spread operator pour copier et "étaler" un tableau
+const allFruits = ["Tomato", ...fruits, "Pineapple", "Tomato"];
+
+console.log(`allFruits`, allFruits);
 
 
 
