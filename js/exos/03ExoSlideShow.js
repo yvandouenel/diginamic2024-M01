@@ -7,6 +7,25 @@ class Slideshow {
     this.images = [];
     this.feedSs();
     this.render();
+    this.animateSs(0);
+  }
+  /**
+   * Cache toutes les images (propriété hidden) sauf celle qui a pour index "index"
+   * fonction récursive
+   * @param {number} index 
+   */
+  animateSs(index = 0) {
+    // cacher toutes les images sauf la première
+    this.images.forEach((img, i) => {
+      img.hidden = i == index ? false : true;
+    })
+
+    // cacher l'image courante et afficher la suivante toutes les "speed"
+    setTimeout(() => {
+      // fonction récursive
+      this.animateSs((index + 1) % this.nbImages);
+    }, this.speed);
+
   }
   feedSs() {
     for (let i = 0; i < this.nbImages; i++) {
@@ -48,4 +67,4 @@ class Slideshow {
   }
 }
 
-const slideShow = new Slideshow(6, 600, 400, 1000);
+const slideShow = new Slideshow(3, 1200, 800, 3000);
