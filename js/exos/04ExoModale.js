@@ -22,5 +22,8 @@ modaleElt.onclick = function (e) {
     e.target.tagName === "SPAN"
   ) modaleElt.style.display = "none";
 }
+modaleElt.addEventListener("click", function () {
+  console.log(`Hello`);
+})
 
 
