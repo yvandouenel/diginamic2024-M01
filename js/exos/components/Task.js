@@ -21,17 +21,29 @@ export default class Task {
         }
       });
       this.handleUpTasksList()
-
+    })
+    this.domElts.btnValidate.addEventListener("click", () => {
+      console.log(`Modification de la tâche : `, this.id);
+      // Modification de la tâche concernée
+      this.tasksList.forEach((task, index) => {
+        if (task.id == this.id) {
+          this.tasksList[index].done = !this.tasksList[index].done;
+        }
+      });
+      this.handleUpTasksList()
     })
   }
   render() {
     const sectionTask = createMarkup("section", this.wrapperTasks, "", { id: "task-list" });
 
     const labelTask = createMarkup("h2", sectionTask, this.label);
-    if (this.done) labelTask.style.textDecoration = "line-through";
 
     const btnDelete = createMarkup("button", sectionTask, "Supprimer");
     const btnValidate = createMarkup("button", sectionTask, "Valider");
+    if (this.done) {
+      labelTask.style.textDecoration = "line-through";
+      btnValidate.innerText = "Invalider";
+    }
 
     return {
       btnDelete,
