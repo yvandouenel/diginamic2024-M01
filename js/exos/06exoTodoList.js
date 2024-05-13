@@ -12,6 +12,7 @@ class TodoList {
     this.handleUpTasksList();
   }
   handleUpTasksList = () => {
+
     console.log(`this.tasksList dans handleUpTasksList`, this.tasksList);
     // Suppression de tous les enfants de wrapperTasks
     this.wrapperTasks.innerHTML = "";
