@@ -19,3 +19,12 @@ function createMarkup(markupname, parent, text = "", attributes = {}) {
 
 // Création d'un bouton
 const btnAddParagraph = createMarkup("button", document.body, "Ajouter un paragraphe");
+
+// Création de la section qui entoure les paragraphes
+const sectionParagraphes = createMarkup("section", document.body);
+
+
+// Gestion des événements
+btnAddParagraph.addEventListener("click", () => {
+  createMarkup("p", sectionParagraphes, "Lorem ipsum ...");
+})
