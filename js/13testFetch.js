@@ -7,6 +7,6 @@ async function getRegions() {
     const regions = await getRegions();
     console.log(`regions`, regions);
   } catch (error) {
-    console.log(`erreur attrapée :`, error);
+    console.log(`Erreur attrapée :`, error);
   }
 })()
