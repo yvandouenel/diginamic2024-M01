@@ -24,7 +24,7 @@ function handleUpTasksList() {
   wrapperTasks.innerHTML = "";
 
   // Affichage des tasks en utilisant le composant Task.js
-  tasksList.forEach(task => {
+  tasksList.sort((a, b) => a.done - b.done).forEach(task => {
     new Task(task.label, task.done, task.id, wrapperTasks, tasksList, handleUpTasksList);
   })
 }
