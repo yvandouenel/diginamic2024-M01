@@ -11,7 +11,6 @@ export function createMarkup(markupname, parent, text = "", attributes = {}) {
   const markup = document.createElement(markupname);
   markup.textContent = text;
   parent.appendChild(markup);
-  console.log(`attributes`, attributes);
   for (let key in attributes) {
     markup.setAttribute(key, attributes[key]);
   }

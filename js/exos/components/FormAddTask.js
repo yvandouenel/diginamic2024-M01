@@ -13,6 +13,7 @@ export default class FormAddTask {
       // FormData 
       const formData = new FormData(this.formElt);
       this.tasksList.push({
+        id: Math.floor(Math.random() * 1000),
         label: formData.get("input-task"),
         done: false
       });
