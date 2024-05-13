@@ -1,8 +1,25 @@
 import { createMarkup } from "../utils/tools.js";
 
 export default class FormAddTask {
-  constructor() {
-    this.render();
+  constructor(tasksList, handleUpTasksList) {
+    this.tasksList = tasksList;
+    this.handleUpTasksList = handleUpTasksList;
+    this.formElt = this.render();
+    this.handleSubmit()
+  }
+  handleSubmit() {
+    this.formElt.addEventListener("submit", (event) => {
+      event.preventDefault();
+      // FormData 
+      const formData = new FormData(this.formElt);
+      this.tasksList.push({
+        label: formData.get("input-task"),
+        done: false
+      });
+      this.handleUpTasksList();
+      this.formElt.reset();
+    })
+
   }
   render() {
     const form = createMarkup("form", document.body);
@@ -16,5 +33,12 @@ export default class FormAddTask {
       "name": "input-task",
       "type": "text"
     });
+
+    const btnValidate = createMarkup(
+      "button", form, "Valider", {
+      "type": "submit"
+    });
+
+    return form
   }
 }
