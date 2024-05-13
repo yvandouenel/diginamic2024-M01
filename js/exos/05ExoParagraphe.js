@@ -26,5 +26,14 @@ const sectionParagraphes = createMarkup("section", document.body);
 
 // Gestion des événements
 btnAddParagraph.addEventListener("click", () => {
-  createMarkup("p", sectionParagraphes, "Lorem ipsum ...");
+
+  const p = createMarkup("p", sectionParagraphes, "Lorem ipsum ..." + Math.random() * 1000);
+  p.addEventListener("click", function (event) {
+
+    event.currentTarget.remove();
+  })
+  const span = createMarkup("span", p, " texte du span");
 })
+
+// Comment faire en sorte que lors du clic sur un paragraphe, celui-ci disparaisse ? On utilisera la méthode "remove"
+
