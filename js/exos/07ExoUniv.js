@@ -17,6 +17,7 @@ formCountries.addEventListener("submit", async (event) => {
     const univs = await FetchUniv.loadUnivs(countrie);
     console.log(`univs`, univs);
   } catch (error) {
-    console.error("Erreur attrapée : ", error)
+    console.error("Erreur attrapée : ", error);
+
   }
 })
