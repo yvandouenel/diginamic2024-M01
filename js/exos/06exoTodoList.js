@@ -1,6 +1,7 @@
 import { createMarkup } from "./utils/tools.js";
 import FormAddTask from "./components/FormAddTask.js";
 import Task from "./components/Task.js";
+import FetchTasks from "./services/FetchTasks.js";
 
 
 class TodoList {
@@ -9,7 +10,15 @@ class TodoList {
     this.form = new FormAddTask(this.tasksList, this.handleUpTasksList);
     this.wrapperTasks = createMarkup("section", document.body);
 
-    this.handleUpTasksList();
+    this.loadTasks();
+  }
+  async loadTasks() {
+    try {
+      this.tasksList = await FetchTasks.loadTasks();
+      this.handleUpTasksList();
+    } catch (error) {
+      console.error(`Erreur attrapée dans loadTasks de TodoList`);
+    }
   }
   handleUpTasksList = () => {
 
