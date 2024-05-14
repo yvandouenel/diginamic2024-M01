@@ -1,5 +1,5 @@
 export default class FetchUniv {
-  static url = 'http://universities.hipolaabs.com/search?country=';
+  static url = 'http://universities.hipolabs.com/search?country=';
 
   static async loadUnivs(country) {
     return fetch(FetchUniv.url + country)
