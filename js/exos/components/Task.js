@@ -55,6 +55,11 @@ export default class Task {
       } catch (error) {
         console.error("Erreur attrapée dans handleEvents de Task");
         this.showError("Erreur lors de la suppression d'une tâche : " + error);
+
+        // Rechargement depuis le server
+        this.tasksList = await FetchTasks.loadTasks();
+        console.log(`this.tasksList en cas d'erreur et après rechargement :`, this.tasksList);
+        this.handleUpTasksList(this.tasksList);
       }
     })
     this.domElts.btnValidate.addEventListener("click", () => {
@@ -69,12 +74,12 @@ export default class Task {
     })
   }
   render() {
-    const sectionTask = createMarkup("section", this.wrapperTasks, "", { id: "task-list" });
+    const sectionTask = createMarkup("section", this.wrapperTasks, "", { id: "task-list", "class": "d-flex my-3 justify-content-between" });
 
     const labelTask = createMarkup("h2", sectionTask, this.label);
-
-    const btnDelete = createMarkup("button", sectionTask, "Supprimer");
-    const btnValidate = createMarkup("button", sectionTask, "Valider");
+    const wrapperBtn = createMarkup("div", sectionTask);
+    const btnDelete = createMarkup("button", wrapperBtn, "Supprimer", { "class": "btn btn-danger mx-1" });
+    const btnValidate = createMarkup("button", wrapperBtn, "Valider", { "class": "btn btn-success mx-1" });
     if (this.done) {
       labelTask.style.textDecoration = "line-through";
       btnValidate.innerText = "Invalider";

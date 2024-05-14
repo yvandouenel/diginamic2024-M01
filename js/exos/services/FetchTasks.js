@@ -7,13 +7,25 @@ export default class FetchTasks {
       .then(data => data)
   }
   static async deleteTask(id) {
-    return fetch(FetchTasks.url + `qsdf/${id}`,
+    return fetch(FetchTasks.url + `/${id}`,
       {
         method: "DELETE",
       })
       .then(response => response.json())
       .then(data => {
         console.log(`data dans deleteTask`, data);
+        return data;
+      })
+  }
+  static async postTask(newTask) {
+    return fetch(FetchTasks.url,
+      {
+        method: "POST",
+        body: JSON.stringify(newTask)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(`data dans postTask`, data);
         return data;
       })
   }

@@ -14,21 +14,22 @@ class TodoList {
   }
   async loadTasks() {
     try {
-      this.tasksList = await FetchTasks.loadTasks();
+      const loadedTasks = await FetchTasks.loadTasks();
+      this.tasksList.push(...loadedTasks);
       this.handleUpTasksList();
     } catch (error) {
       console.error(`Erreur attrapée dans loadTasks de TodoList`);
     }
   }
-  handleUpTasksList = () => {
+  handleUpTasksList = (tasksList = this.tasksList) => {
 
     console.log(`this.tasksList dans handleUpTasksList`, this.tasksList);
     // Suppression de tous les enfants de wrapperTasks
     this.wrapperTasks.innerHTML = "";
 
     // Affichage des tasks en utilisant le composant Task.js
-    this.tasksList.sort((a, b) => a.done - b.done).forEach(task => {
-      new Task(task.label, task.done, task.id, this.wrapperTasks, this.tasksList, this.handleUpTasksList);
+    tasksList.sort((a, b) => a.done - b.done).forEach(task => {
+      new Task(task.label, task.done, task.id, this.wrapperTasks, tasksList, this.handleUpTasksList);
     })
   }
 }
