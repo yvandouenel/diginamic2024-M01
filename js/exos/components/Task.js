@@ -68,6 +68,9 @@ export default class Task {
       this.tasksList.forEach((task, index) => {
         if (task.id == this.id) {
           this.tasksList[index].done = !this.tasksList[index].done;
+          FetchTasks.patchTask(task.id, {
+            done: this.tasksList[index].done
+          });
         }
       });
       this.handleUpTasksList()

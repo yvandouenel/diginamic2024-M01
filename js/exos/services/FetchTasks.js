@@ -29,4 +29,17 @@ export default class FetchTasks {
         return data;
       })
   }
+  static async patchTask(id, partialTask) {
+    console.log(`patchTask`, id, partialTask);
+    return fetch(`${FetchTasks.url}/${id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify(partialTask)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(`data dans patchTask`, data);
+        return data;
+      })
+  }
 }
