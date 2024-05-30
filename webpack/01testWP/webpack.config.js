@@ -14,12 +14,15 @@ const config = {
         test: /\.tsx?$/, // pour les fichiers se terminant pas ts ou tsx
         exclude: /node_modules/, // sans prendre en compte les dépendances
         use: "ts-loader",
+      },
+      {
+        test: /.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       }
     ],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-
   },
   output: {
     filename: "bundle.js",
