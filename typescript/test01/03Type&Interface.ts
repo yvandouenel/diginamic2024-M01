@@ -11,6 +11,7 @@ const p1: Point = {
 interface Person {
   name: string;
   age: number;
+  hello: () => string;
 }
 
 const bob: Person = {
@@ -27,11 +28,16 @@ class People implements Person {
   }
 }
 interface Searching {
-  (critere1: string, critere2: string): boolean;
+  (critere1: string, critere2: number): boolean;
 }
 
 const searchByName: Searching = function (name, orderBy) {
   console.log("Je cherche !");
   return true;
 };
-searchByName("toto", "1");
+searchByName("toto", 1);
+
+const test: Searching = function (name, orderBy) {
+  console.log("Je cherche !");
+  return true;
+};
