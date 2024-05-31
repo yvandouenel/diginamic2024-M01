@@ -28,7 +28,8 @@ et pour méthode
             generateObservableFromClick():Observable 
               subscribeObservable(obs$: Observable):void
           
-Lisez la documentation.
+Lisez la documentation.https://www.learnrxjs.io/learn-rxjs/operators/creation/fromevent
+
 Vous créez ensuite une classe "Counter" qui a pour propriétés :
 
             private button_section: HTMLElement;
