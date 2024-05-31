@@ -48,3 +48,12 @@ que l'observable soit d'abord un "cold observable" puis un "hot observable" à l
 
 ## Observables provenant d'une requête fetch
 A l'aide des fonctions fromFetch, pipe, switchMap et shareReplay, construisez une fonction buildRequestObservale() de la class Data qui renvoie un "hot observable" qui renvoie lui même le retour du dernier appel de fetch.
+
+Vous utilisez le "endpoint" suivant : https://restcountries.com/v3.1/name/${name}
+
+Si vous vous en sentez capable, mettez en place l'exemple donné par Thierry Chatel qui utilise plusieurs opérateur :
+- map avec trim
+- filter (length > 2)
+- debounceTime
+- distinctUntilChanged 
+- switchMap pour aller chercher les pays via la requête HTTP sur le service restcountries.
