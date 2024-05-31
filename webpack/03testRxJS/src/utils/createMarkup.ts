@@ -7,7 +7,7 @@
  * @param {Object} attributes
  * @returns domElement
  */
-function createMarkup(
+export default function createMarkup(
   markupname: string,
   text: string,
   parent: HTMLElement,
