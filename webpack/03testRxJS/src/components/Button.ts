@@ -1,10 +1,11 @@
 import createMarkup from "../utils/createMarkup";
 import { fromEvent, Observable } from "rxjs";
 import { map, scan, shareReplay, filter } from "rxjs/operators";
+
 export default class Button {
   private button_section: HTMLElement;
   private title: string;
-  button_elt: HTMLElement;
+  private button_elt: HTMLElement;
 
   constructor(button_section: HTMLElement, title: string) {
     this.button_section = button_section;
