@@ -14,3 +14,11 @@ obsClick$.subscribe({
 
 const cpt1 = new Counter(document.getElementById("section-cpt"));
 cpt1.subscribeObservable(obsClick$);
+
+setTimeout(() => {
+  const cpt2 = new Counter(document.getElementById("section-cpt"));
+  cpt2.subscribeObservable(obsClick$);
+}, 2000);
+
+// Créer avec un décalage de 2 secondes un nouveau compteur
+// Faites en sorte que l'observable soit froid puis chaud.
