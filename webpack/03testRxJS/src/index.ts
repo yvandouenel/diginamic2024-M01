@@ -12,11 +12,13 @@ obsClick$.subscribe({
   },
 });
 
-const cpt1 = new Counter(document.getElementById("section-cpt"));
+const cpt1 = new Counter(document.getElementById("section-cpt") as HTMLElement);
 cpt1.subscribeObservable(obsClick$);
 
 setTimeout(() => {
-  const cpt2 = new Counter(document.getElementById("section-cpt"));
+  const cpt2 = new Counter(
+    document.getElementById("section-cpt") as HTMLElement
+  );
   cpt2.subscribeObservable(obsClick$);
 }, 2000);
 

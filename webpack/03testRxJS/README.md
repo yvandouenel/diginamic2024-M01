@@ -23,10 +23,10 @@ Vous allez créer un bouton ayant pour label "+ 1" qui sera la source d'un obser
             private title: string;
             private button_elt: HTMLElement;
           
-et pour méthode
+et pour méthodes :
             render()
             generateObservableFromClick():Observable 
-              subscribeObservable(obs$: Observable):void
+            subscribeObservable(obs$: Observable):void
           
 Lisez la documentation.https://www.learnrxjs.io/learn-rxjs/operators/creation/fromevent
 
