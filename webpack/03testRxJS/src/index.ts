@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import Counter from "./components/Counter";
+import loadCountries from "./services/loadCountries";
 
 const button1 = new Button(
   document.getElementById("section-button") as HTMLElement,
@@ -22,5 +23,6 @@ setTimeout(() => {
   cpt2.subscribeObservable(obsClick$);
 }, 2000);
 
-// Créer avec un décalage de 2 secondes un nouveau compteur
-// Faites en sorte que l'observable soit froid puis chaud.
+// Utilisation des observables avec fetch
+const obsCountries$ = loadCountries("fra");
+obsCountries$.subscribe((countries) => console.log("countries", countries));
