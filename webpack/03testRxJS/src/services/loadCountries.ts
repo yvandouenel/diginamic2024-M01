@@ -3,6 +3,7 @@ import { fromFetch } from "rxjs/fetch";
 import { switchMap, catchError } from "rxjs/operators";
 
 export default function loadCountries(name: string): Observable<object[]> {
+  console.log(`Dans loadCountries`);
   return fromFetch(`https://restcountries.com/v3.1/name/${name}`).pipe(
     switchMap((response) => {
       if (response.status == 404) {

@@ -1,5 +1,6 @@
 import Button from "./components/Button";
 import Counter from "./components/Counter";
+import Form from "./components/Form";
 import loadCountries from "./services/loadCountries";
 
 const button1 = new Button(
@@ -22,6 +23,8 @@ setTimeout(() => {
   );
   cpt2.subscribeObservable(obsClick$);
 }, 2000);
+// Création du formulaire
+const form = new Form(document.getElementById("section-form") as HTMLElement);
 
 // Utilisation des observables avec fetch
 const obsCountries$ = loadCountries("fra");
