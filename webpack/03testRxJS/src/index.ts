@@ -33,5 +33,5 @@ if (form.manageObservableInput()) {
 }
 
 // Utilisation des observables avec fetch
-const obsCountries$ = loadCountries("fra");
-obsCountries$.subscribe((countries) => console.log("countries", countries));
+/* const obsCountries$ = loadCountries("fra");
+obsCountries$.subscribe((countries) => console.log("countries", countries)); */

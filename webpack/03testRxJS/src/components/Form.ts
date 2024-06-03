@@ -1,6 +1,14 @@
 import createMarkup from "../utils/createMarkup";
-import { fromEvent, Observable } from "rxjs";
-import { switchMap, scan, shareReplay, filter, share } from "rxjs/operators";
+import { fromEvent, Observable, of } from "rxjs";
+import loadCountries from "../services/loadCountries";
+import {
+  switchMap,
+  scan,
+  shareReplay,
+  filter,
+  share,
+  debounceTime,
+} from "rxjs/operators";
 
 export default class Form {
   private form_section: HTMLElement;
@@ -13,8 +21,13 @@ export default class Form {
   manageObservableInput() {
     if (this.input_elt) {
       const sourceCountry$ = fromEvent(this.input_elt, "input").pipe(
+        debounceTime(300),
         switchMap((e: Event) => {
-          return (this.input_elt as HTMLInputElement).value;
+          return of((this.input_elt as HTMLInputElement).value);
+        }),
+        filter((name) => name.length > 2),
+        switchMap((name) => {
+          return loadCountries(name);
         })
       );
       return sourceCountry$;
