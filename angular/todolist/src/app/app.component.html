@@ -9,42 +9,7 @@
 
 <main class="main">
   <!-- Interpolation  -->
-  <h1>{{ title }}</h1>
-  <!-- Property Binding  -->
-  <h1 [textContent]="title"></h1>
-  <div>{{ data$ | async }}</div>
-  <div>{{ currentDate$ | async | date : "dd/mm/yyyy - HH:mm" }}</div>
-  <div>
-    @if (tasks.length){
-    <p>{{ tasks | slice : 0 : 1 | json }}</p>
-    <ul>
-      <li
-        *ngFor="let task of tasks"
-        [ngClass]="{
-          'line-through': task.done
-        }"
-      >
-        <div style="display: flex; gap: 20px">
-          <span>{{ task.name }}</span>
-          <span>{{ task?.comment }}</span>
-        </div>
-      </li>
-    </ul>
-    } @else {
-    <p>Pas de tâches à exécuter !!!</p>
-    }
-  </div>
-  <!-- Double data binding -->
-  <input [(ngModel)]="lastName" type="text" #test />
-  {{ test.getAttribute("type") }}
-  <p>{{ lastName }}</p>
-  <!-- Attention à comprendre la différence entre un attribut html et une propriété js -->
-  <select name="" id="">
-    <option [selected]="false">Cobra</option>
-    <option selected>Couleuvre</option>
-    <option [selected]="true">Set</option>
-    <!-- non sélectionné -->
-  </select>
+  <digi-tasks-list [title]="titleTodoList"></digi-tasks-list>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

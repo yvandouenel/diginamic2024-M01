@@ -4,42 +4,17 @@ import { RouterOutlet } from '@angular/router';
 import TaskInterface from '../interfaces/TaskInterface';
 import { FormsModule } from '@angular/forms';
 import { Observable, interval, map, startWith } from 'rxjs';
+import { TasksListComponent } from './tasks-list/tasks-list.component';
 
 // décorateur de la classe AppComponent avec des arguments () - annotations
 @Component({
   selector: 'digi-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule],
+  imports: [CommonModule, RouterOutlet, FormsModule, TasksListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'TodoList';
-  tasks: TaskInterface[] = [
-    {
-      id: 1,
-      name: 'Faire la vaisselle',
-      done: false,
-    },
-    {
-      id: 2,
-      name: 'Faire les courses',
-      done: true,
-      comment: 'Ne pas oublier la liste',
-    },
-  ];
-  logValue = (text: string) => {
-    console.log(`texte `, text);
-  };
-  lastName = '';
-  data$: Observable<number>;
-  currentDate$: Observable<Date>;
-  constructor() {
-    /* data$ est un observable qui va émettre une valeur (notification next ) */
-    this.data$ = interval(1000);
-    this.currentDate$ = interval(60000).pipe(
-      startWith(new Date()),
-      map(() => new Date())
-    );
-  }
+  titleTodoList = 'TodoList';
+  constructor() {}
 }
