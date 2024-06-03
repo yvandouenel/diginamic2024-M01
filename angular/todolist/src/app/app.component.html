@@ -8,12 +8,28 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <main class="main">
-  <h1>Hello, {{ title }}</h1>
-  <ul>
-    <li *ngFor="let task of tasks">
-      {{ task.name }}
-    </li>
-  </ul>
+  <!-- Interpolation  -->
+  <h1>{{ title }}</h1>
+  <!-- Property Binding  -->
+  <h1 [textContent]="title"></h1>
+  <div>
+    @if (tasks.length){
+    <ul>
+      <li *ngFor="let task of tasks">
+        {{ task.name }}
+      </li>
+    </ul>
+    } @else {
+    <p>Pas de tâches à exécuter !!!</p>
+    }
+  </div>
+  <!-- Attention à comprendre la différence entre un attribut html et une propriété js -->
+  <select name="" id="">
+    <option [selected]="false">Cobra</option>
+    <option selected>Couleuvre</option>
+    <option [selected]="true">Set</option>
+    <!-- non sélectionné -->
+  </select>
 </main>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
