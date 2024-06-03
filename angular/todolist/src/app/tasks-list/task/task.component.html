@@ -3,7 +3,23 @@
   *ngIf="task !== undefined"
   class="d-flex justify-content-between my-3 align-items-center"
 >
-  <h2>{{ task.name }}</h2>
+  <h2
+    [ngClass]="{
+      'text-decoration-line-through': task.done,
+      'task-not-done': !task.done
+    }"
+  >
+    {{ task.name }}
+  </h2>
   <p class="m-0">{{ task.comment }}</p>
-  <button class="btn btn-success">Valider</button>
+  <button
+    [ngClass]="{
+      btn: true,
+      'btn-warning': task.done,
+      'btn-success': !task.done
+    }"
+    [style.minWidth.px]="90"
+    class="btn btn-success"
+    [textContent]="task.done ? 'Invalider' : 'Valider'"
+  ></button>
 </div>
