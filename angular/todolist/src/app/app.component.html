@@ -15,7 +15,7 @@
   <div>
     @if (tasks.length){
     <ul>
-      <li *ngFor="let task of tasks">
+      <li *ngFor="let task of tasks" [ngClass]="{ 'line-throught': task.done }">
         {{ task.name }}
       </li>
     </ul>

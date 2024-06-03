@@ -165,3 +165,6 @@ main {
     margin-block: 1.5rem;
   }
 }
+.line-throught {
+  text-decoration-line: line-through;
+}

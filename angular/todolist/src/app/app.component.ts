@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import TaskInterface from '../interfaces/TaskInterface';
 
 // décorateur de la classe AppComponent avec des arguments () - annotations
 @Component({
@@ -12,8 +13,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'TodoList';
-  tasks = [
-    { id: 1, name: 'Faire la vaiselle', done: true },
-    { id: 2, name: 'Déclarer les impôts', done: false },
-  ];
+  tasks: TaskInterface[] = [];
 }
