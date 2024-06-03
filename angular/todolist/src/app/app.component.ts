@@ -37,4 +37,5 @@ export class AppComponent {
     /* data$ est un observable qui va émettre une valeur (notification next ) */
     this.data$ = interval(1000);
   }
+  currentDate = new Date();
 }

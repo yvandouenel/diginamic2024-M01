@@ -13,6 +13,7 @@
   <!-- Property Binding  -->
   <h1 [textContent]="title"></h1>
   <div>{{ data$ | async }}</div>
+  <div>{{ currentDate | date : "dd/mm/yyyy - HH:mm" }}</div>
   <div>
     @if (tasks.length){
     <p>{{ tasks | slice : 0 : 1 | json }}</p>
