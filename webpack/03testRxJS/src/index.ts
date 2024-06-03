@@ -25,6 +25,12 @@ setTimeout(() => {
 }, 2000);
 // Création du formulaire
 const form = new Form(document.getElementById("section-form") as HTMLElement);
+if (form.manageObservableInput()) {
+  const obsInput$ = form.manageObservableInput();
+  obsInput$?.subscribe({
+    next: (value) => console.log(`value`, value),
+  });
+}
 
 // Utilisation des observables avec fetch
 const obsCountries$ = loadCountries("fra");
