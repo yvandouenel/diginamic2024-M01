@@ -2,7 +2,7 @@
 <div>
   @if (tasks.length){
   <ul>
-    <li *ngFor="let task of tasks">
+    <li *ngFor="let task of tasks" class="list-unstyled">
       <!-- Envoi de la donnée task qui sera récupérée via @Input task -->
       <digi-task [task]="task"></digi-task>
     </li>
