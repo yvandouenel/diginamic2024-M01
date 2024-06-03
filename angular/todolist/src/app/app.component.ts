@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import TaskInterface from '../interfaces/TaskInterface';
 import { FormsModule } from '@angular/forms';
-import { Observable, interval } from 'rxjs';
+import { Observable, interval, map, startWith } from 'rxjs';
 
 // décorateur de la classe AppComponent avec des arguments () - annotations
 @Component({
@@ -33,9 +33,13 @@ export class AppComponent {
   };
   lastName = '';
   data$: Observable<number>;
+  currentDate$: Observable<Date>;
   constructor() {
     /* data$ est un observable qui va émettre une valeur (notification next ) */
     this.data$ = interval(1000);
+    this.currentDate$ = interval(60000).pipe(
+      startWith(new Date()),
+      map(() => new Date())
+    );
   }
-  currentDate = new Date();
 }
