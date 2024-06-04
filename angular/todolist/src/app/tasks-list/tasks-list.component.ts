@@ -12,8 +12,7 @@ import { DataTasksService } from '../services/data-tasks.service';
   styleUrl: './tasks-list.component.css',
 })
 export class TasksListComponent {
-  /* Récupération du titre donné par le parent */
-  @Input() title: string = '';
+  title: string = 'Todo List';
 
   /* propriété task qui permettra de donner des valeurs au composant enfant Task */
   tasks: TaskInterface[] = [];

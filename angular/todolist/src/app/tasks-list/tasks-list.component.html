@@ -1,7 +1,7 @@
-<h1>{{ title | uppercase }}</h1>
+<h1 class="text-warning">{{ title | uppercase }}</h1>
 <div>
   @if (tasks.length){
-  <ul>
+  <ul class="m-0 p-0">
     <li *ngFor="let task of tasks" class="list-unstyled">
       <!-- Envoi de la donnée task qui sera récupérée via @Input task -->
       <digi-task
