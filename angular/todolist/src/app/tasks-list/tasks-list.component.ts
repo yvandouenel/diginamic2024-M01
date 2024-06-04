@@ -44,12 +44,13 @@ export class TasksListComponent {
     this.dataTasksService.getNewTaskObservable().subscribe({
       next: (partialTask: object) => {
         console.log(`taskPartial dans composant tasks-list`, partialTask);
-        this.addTask(partialTask);
+        // Gère l'affichage local
+        this.addTaskLocal(partialTask);
       },
     });
   }
-  addTask(partialTask: object) {
-    // Ajout d'une nouvelle tâche
+  addTaskLocal(partialTask: object) {
+    // Ajout d'une nouvelle tâche en local
     const newTask = {
       id: 0,
       done: false,
@@ -58,5 +59,8 @@ export class TasksListComponent {
       ...partialTask,
     };
     this.tasks.push(newTask);
+  }
+  addTaskViaApi() {
+    // Ici faire appel au service qui ajoute une tâche via une requête post
   }
 }
