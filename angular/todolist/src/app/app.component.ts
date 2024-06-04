@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import TaskInterface from '../interfaces/TaskInterface';
 import { FormsModule } from '@angular/forms';
-import { Observable, interval, map, startWith } from 'rxjs';
 import { TasksListComponent } from './tasks-list/tasks-list.component';
+import { Title } from '@angular/platform-browser';
 
 // décorateur de la classe AppComponent avec des arguments () - annotations
 @Component({
@@ -16,5 +15,8 @@ import { TasksListComponent } from './tasks-list/tasks-list.component';
 })
 export class AppComponent {
   titleTodoList = 'TodoList';
-  constructor() {}
+  /* Injection du service Title */
+  constructor(headTitle: Title) {
+    headTitle.setTitle('Todo List angular');
+  }
 }
