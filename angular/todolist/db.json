@@ -1,0 +1,15 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "name": "Faire la vaisselle",
+      "done": true,
+      "comment": "Dépêche-toi mon lapin, je ne supporte pas de voir traîner la vaisselle !"
+    },
+    {
+      "id": 2,
+      "name": "Faire le ménage",
+      "done": false
+    }
+  ]
+}

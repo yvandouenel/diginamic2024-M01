@@ -26,9 +26,13 @@ export class TasksListComponent {
       })
       .sort((a, b) => Number(a.done) - Number(b.done));
   }
-  constructor(private DataTasksService: DataTasksService) {
-    this.tasks = this.DataTasksService.loadTasks().sort(
-      (a: TaskInterface, b: TaskInterface) => Number(a.done) - Number(b.done)
-    );
+  /* injection de dépendance pour récupérer les tâches via un service - ici DataTasksService */
+  constructor(private dataTasksService: DataTasksService) {}
+  ngOnInit(): void {
+    // Voilà la souscription
+    // Quand il y aura une notification next, alors tasks sera réassignée
+    this.dataTasksService.loadTasks().subscribe((tasks: TaskInterface[]) => {
+      this.tasks = tasks;
+    });
   }
 }
