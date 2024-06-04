@@ -42,9 +42,21 @@ export class TasksListComponent {
 
     // Souscription à newTask$
     this.dataTasksService.getNewTaskObservable().subscribe({
-      next: (taskPartial: object) => {
-        console.log(`taskPartial dans composant tasks-list`, taskPartial);
+      next: (partialTask: object) => {
+        console.log(`taskPartial dans composant tasks-list`, partialTask);
+        this.addTask(partialTask);
       },
     });
+  }
+  addTask(partialTask: object) {
+    // Ajout d'une nouvelle tâche
+    const newTask = {
+      id: 0,
+      done: false,
+      name: '',
+      comment: '',
+      ...partialTask,
+    };
+    this.tasks.push(newTask);
   }
 }
