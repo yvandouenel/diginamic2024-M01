@@ -13,7 +13,7 @@ export class DataTasksService {
    * @returns Observable<TaskInterface[]>
    */
   loadTasks(): Observable<TaskInterface[]> {
-    const url = 'http://localhost:3000/tasks';
+    const url = 'http://localhost:3000/tasksss';
     const params = { status: 'PENDING' };
     return this.http.get<Array<TaskInterface>>(url, { params });
   }

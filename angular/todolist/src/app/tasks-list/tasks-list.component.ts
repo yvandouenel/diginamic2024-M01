@@ -31,8 +31,13 @@ export class TasksListComponent {
   ngOnInit(): void {
     // Voilà la souscription
     // Quand il y aura une notification next, alors tasks sera réassignée
-    this.dataTasksService.loadTasks().subscribe((tasks: TaskInterface[]) => {
-      this.tasks = tasks;
+    this.dataTasksService.loadTasks().subscribe({
+      next: (tasks: TaskInterface[]) => {
+        this.tasks = tasks;
+      },
+      error: (error) => {
+        console.error(`Erreur catchée dans le composant tasks-list : `, error);
+      },
     });
   }
 }
