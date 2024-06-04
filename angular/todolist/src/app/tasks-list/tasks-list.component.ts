@@ -39,5 +39,12 @@ export class TasksListComponent {
         console.error(`Erreur catchée dans le composant tasks-list : `, error);
       },
     });
+
+    // Souscription à newTask$
+    this.dataTasksService.getNewTaskObservable().subscribe({
+      next: (taskPartial: object) => {
+        console.log(`taskPartial dans composant tasks-list`, taskPartial);
+      },
+    });
   }
 }
