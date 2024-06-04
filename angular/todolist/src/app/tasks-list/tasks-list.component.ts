@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import TaskInterface from '../../interfaces/TaskInterface';
 import { TaskComponent } from './task/task.component';
 import { DataTasksService } from '../services/data-tasks.service';
+import { FormTaskComponent } from './form-task/form-task.component';
 
 @Component({
   selector: 'digi-tasks-list',
   standalone: true,
-  imports: [CommonModule, TaskComponent],
+  imports: [CommonModule, TaskComponent, FormTaskComponent],
   templateUrl: './tasks-list.component.html',
   styleUrl: './tasks-list.component.css',
 })

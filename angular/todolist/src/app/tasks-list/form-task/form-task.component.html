@@ -1,0 +1,7 @@
+<form (ngSubmit)="register(taskForm.value)" #taskForm="ngForm">
+  <label for="task-input">Tâche</label>
+  <input id="task-input" name="taskName" ngModel />
+  <label for="task-comment">Commentaire</label>
+  <input id="task-comment" name="taskComment" ngModel />
+  <button type="submit" class="btn btn-success">Ajouter une tâche</button>
+</form>
