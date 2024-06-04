@@ -28,4 +28,7 @@ export class TasksListComponent {
       comment: 'Ne pas oublier la liste',
     },
   ];
+  onClickValidate(id: number) {
+    console.log(`Récupération id dans tasks-list`, id);
+  }
 }

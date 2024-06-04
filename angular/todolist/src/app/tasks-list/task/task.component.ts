@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import TaskInterface from '../../../interfaces/TaskInterface';
 import { CommonModule } from '@angular/common';
 
@@ -12,4 +12,10 @@ import { CommonModule } from '@angular/common';
 export class TaskComponent {
   /* Récupération de l'objet task envoyé par le composant parent soit TasksList */
   @Input() task: TaskInterface | undefined;
+  @Output() validateTask$ = new EventEmitter<number>();
+
+  /* Gestionnaire d'événement */
+  onClickValidate(id: number) {
+    this.validateTask$.emit(id);
+  }
 }

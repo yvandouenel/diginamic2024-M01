@@ -12,6 +12,7 @@
   </h2>
   <p class="m-0">{{ task.comment }}</p>
   <button
+    (click)="onClickValidate(task.id)"
     [ngClass]="{
       btn: true,
       'btn-warning': task.done,
