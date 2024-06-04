@@ -27,15 +27,17 @@ export class TasksListComponent {
       done: true,
       comment: 'Ne pas oublier la liste',
     },
-  ];
+  ].sort((a, b) => Number(a.done) - Number(b.done));
   onClickValidate(id: number) {
     console.log(`Récupération id dans tasks-list`, id);
     // Modification de la tâche qui a pour identité "id". Il faut faire un toggle sur task.done.
     /* let indexTaskToUpdate = this.tasks.findIndex((task) => task.id === id);
     this.tasks[indexTaskToUpdate].done = !this.tasks[indexTaskToUpdate].done; */
-    this.tasks = this.tasks.map((task) => {
-      if (task.id === id) return { ...task, done: !task.done };
-      return task;
-    });
+    this.tasks = this.tasks
+      .map((task) => {
+        if (task.id === id) return { ...task, done: !task.done };
+        return task;
+      })
+      .sort((a, b) => Number(a.done) - Number(b.done));
   }
 }
