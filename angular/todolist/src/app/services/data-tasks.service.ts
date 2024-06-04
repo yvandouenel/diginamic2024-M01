@@ -16,11 +16,12 @@ export class DataTasksService {
    * Emet une notification next depuis l'observable newTask$
    * @param partialTask
    */
-  emitNewTaskObservable(partialTask: object): void {
+  emitNewTaskObservable(partialTask: Omit<TaskInterface, 'id' | 'done'>): void {
     this.newTask$.next(partialTask);
   }
   /**
-   * Renvoie une référence à l'observable newTask$
+   * Renvoie une référence à l'observable newTask$ qui est chaud par défaut car
+   * issu de Subject
    * @returns Observable
    */
   getNewTaskObservable(): Observable<any> {
@@ -34,5 +35,11 @@ export class DataTasksService {
     const url = 'http://localhost:3000/tasks';
     const params = { status: 'PENDING' };
     return this.http.get<Array<TaskInterface>>(url, { params }).pipe(retry(3));
+  }
+
+  postData(partialTask: Omit<TaskInterface, 'id'>): Observable<TaskInterface> {
+    const url = 'http://localhost:3000/tasks';
+    console.log(`Dans postTask de DataTasksService`, partialTask);
+    return this.http.post<TaskInterface>(url, partialTask);
   }
 }

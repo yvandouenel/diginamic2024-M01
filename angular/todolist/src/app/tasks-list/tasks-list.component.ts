@@ -42,25 +42,35 @@ export class TasksListComponent {
 
     // Souscription à newTask$
     this.dataTasksService.getNewTaskObservable().subscribe({
-      next: (partialTask: object) => {
+      next: (partialTask: Omit<TaskInterface, 'id' | 'done'>) => {
         console.log(`taskPartial dans composant tasks-list`, partialTask);
         // Gère l'affichage local
         this.addTaskLocal(partialTask);
+        this.addTaskViaApi(partialTask);
       },
     });
   }
-  addTaskLocal(partialTask: object) {
+  addTaskLocal(partialTask: Omit<TaskInterface, 'id' | 'done'>) {
     // Ajout d'une nouvelle tâche en local
     const newTask = {
       id: 0,
       done: false,
-      name: '',
       comment: '',
       ...partialTask,
     };
     this.tasks.push(newTask);
   }
-  addTaskViaApi() {
+  addTaskViaApi(partialTask: Omit<TaskInterface, 'id' | 'done'>) {
     // Ici faire appel au service qui ajoute une tâche via une requête post
+    const newTask = {
+      done: false,
+      comment: '',
+      ...partialTask,
+    };
+    this.dataTasksService.postData(newTask).subscribe({
+      next: (data) => {
+        console.log(`data reçue à la souscription de postData`, data);
+      },
+    });
   }
 }
